@@ -6,7 +6,7 @@ app.get('/howdy', function(req, res) {
 });
 
 app.get('/sad', function(req, res) {
-  res.end("I did not go skiing this weekend")
+  res.end("I did not go skiing last weekend")
 });
 
 app.get('/happy', function(req, res) {

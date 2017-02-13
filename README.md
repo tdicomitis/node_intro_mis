@@ -54,17 +54,38 @@ var server = app.listen(3000, function() {
   console.log('Server 🔥🔥🔥ed up on PORT 3000')
 });
 ```
-Then we committed our code
+Then we committed our code:
 
 `git add -A`
 
 `git commit -m "Add package.json, user express to configure our server"`
 
 `git push origin master`
+
 ----
+#### Third commit
+Up until now we have had to kill our server, and restart our server to see our new changes in our code. We can use a tool called `nodemon`, that will make this process much easier.
+
+`sudo npm install - g nodemon`
+
+*the dash g flag tells NPM to install nodemon globally on our computer. Meaning it is not specific to this project. When we install things globally, it is a pretty big deal, we need to prefix the command with sudo*
+
+Now we can start our server with `nodemon` and our server will automatically restart every time we save our codebase.
+
+`nodemon server.js`
+
 
 1) Make two new endpoints, one that serves a sad response, and one that serves a happy response
+```
+app.get('/sad', function(req, res) {
+  res.end("I did not go skiing last weekend")
+});
 
-2) Document your changes in README
+app.get('/happy', function(req, res) {
+  res.end("I am going skiing this weekend!")
+});
+```
+
+2) Commit your code. *we will no longer detail the steps for a commit*
 
 3) Push changes to Github
