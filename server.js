@@ -13,6 +13,10 @@ app.get('/happy', function(req, res) {
   res.end("I am going skiing this weekend!")
 });
 
+app.get('/greeting/:name', function(req, res){
+  res.end('nice to meet you ' + req.params.name)
+});
+
 var server = app.listen(3000, function() {
   console.log('Server 🔥🔥🔥ed up on PORT 3000')
 });
