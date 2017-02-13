@@ -107,3 +107,36 @@ app.get(/'greeting/:name', function(req, res){
 Add this endpoint to `server.js`, and pass in a value for the name param.
 
 ----
+#### Fifth Commit: req.body
+If you have ever been on a website and filled out a form, when you hit the `submit` button, you are actually submitting data to the server. This data or information, gets submitted to the server in an object called req.body
+
+In the following example, we are going to create an endpoint to simulate a user login form. The information being submitted to the server will be name, and password. aka `req.body.name` && `req.body.password`
+
+but first...
+
+__Postman__ is a tool that enables us to easily test our APIs, for our example if will enable us to test the functionality of a form being submitted, without actually having to create the UI in the form.
+
+1) Create the login API endpoint. This will be a `POST` method since we are sending data to the server.
+
+
+2) Install and configure `body-parser` (allows our form to submit data)
+
+`npm install --save body-parser`
+
+require it in your `server,js`
+
+`var bodyParser = require('body-parser')`
+
+configure your application to use it:
+
+`app.use(bodyParser,json())`
+
+and
+
+`app.use(bodyParser.urlencoded({ extended: true}));`
+
+3) Make sure your server is running.
+
+`nodemon server.js`
+
+4) Head to Postman to test your endpoint `localhost:30000/login` (do not forget to select x-www-form-urlencoded)
