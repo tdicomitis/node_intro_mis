@@ -6,7 +6,7 @@ Learning node by doing, and keeping track of it with github
 Using the node module `http`, to create a very simple server.
 Run `node server.js` to start a server on port 3000.
 
-```
+```js
 
 var http = require('http');
 
