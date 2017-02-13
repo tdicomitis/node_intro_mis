@@ -39,7 +39,7 @@ Run commant 'npm install --save express'
 *the dash dash save, writes express to our package.json*
 
 1) Imported express and used the constructor to make our app.
-2) Defined an endpoing `howdy`, which gives a response of some text.
+2) Defined an endpoint `howdy`, which gives a response of some text.
 3) Created a server on PORT 3000
 
 ```
@@ -61,3 +61,10 @@ Then we committed our code
 `git commit -m "Add package.json, user express to configure our server"`
 
 `git push origin master`
+----
+
+1) Make two new endpoints, one that serves a sad response, and one that serves a happy response
+
+2) Document your changes in README
+
+3) Push changes to Github
