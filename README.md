@@ -42,7 +42,7 @@ Run commant 'npm install --save express'
 2) Defined an endpoint `howdy`, which gives a response of some text.
 3) Created a server on PORT 3000
 
-```
+```js
 var express = require('express');
 var app = express();
 
@@ -76,7 +76,7 @@ Now we can start our server with `nodemon` and our server will automatically res
 
 
 1) Make two new endpoints, one that serves a sad response, and one that serves a happy response
-```
+```js
 app.get('/sad', function(req, res) {
   res.end("I did not go skiing last weekend")
 });
@@ -93,15 +93,15 @@ app.get('/happy', function(req, res) {
 ----
 #### Forth Commit: Params
 We can create functions that can take a parameter, and do something with that value:
-```
+```js
 function greeting (name) {
   return "hello " + name
 }
 ```
 We have this same ability when we define API endpoints:
-```
-app.get(/'greeting/:name', function(req, res){
-  res.send("how are you " + req.params,name);
+```js
+app.get('/greeting/:name', function(req, res){
+  res.end('nice to meet you ' + req.params.name)
 });
 ```
 Add this endpoint to `server.js`, and pass in a value for the name param.
