@@ -4,31 +4,23 @@ var bodyParser = require ('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
+app.set('view engine', 'ejs');
 
-app.get('/howdy', function(req, res) {
-  res.end("We made it!")
+app.get('/', function(req, res){
+  res.render('index', { name: "Taryn" });
 });
 
-app.get('/sad', function(req, res) {
-  res.end("I did not go skiing last weekend")
+app.get('/about', function(req, res){
+  res.render('index2')
 });
 
-app.get('/happy', function(req, res) {
-  res.end("I am going skiing this weekend!")
+var hobbies = ["skiing", "hiking", "skyrim", "eating"];
+
+app.get('/about-me', function(req, res){
+  res.render('about', { data: hobbies })
 });
 
-app.get('/greeting/:name', function(req, res){
-  res.end('nice to meet you ' + req.params.name)
-});
 
-app.post('/login', function(req, res){
-  var name = req.body.name;
-  var password = req.body.password;
-  console.log(name, password);
-  var user = { name: name, password: password };
-  res.json(user);
-});
-
-var server = app.listen(3001, function() {
-  console.log('Server 🔥🔥🔥ed up on PORT 3001')
+var server = app.listen(3000, function() {
+  console.log('Server 🔥🔥🔥ed up on PORT 3000')
 });

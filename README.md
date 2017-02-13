@@ -131,7 +131,7 @@ configure your application to use it:
 
 `app.use(bodyParser,json())`
 
-and
+&&
 
 `app.use(bodyParser.urlencoded({ extended: true}));`
 
@@ -140,3 +140,73 @@ and
 `nodemon server.js`
 
 4) Head to Postman to test your endpoint `localhost:30000/login` (do not forget to select x-www-form-urlencoded)
+
+----
+####Sixth Commit: EJS
+
+EJS --> Embedded javascript. Initially we will have node server up `ejs` files that will look exactly like `HTML`. Eventually we will dynamically render variables and data right inside of our HTML, this is why it is called a 'templating engine'
+
+1) Install EJS:
+`npm install --save ejs`
+
+2) Tell `server.js` to use ejs:
+'app.set('view engine', 'ejs')'
+
+Next we have to create an ejs page (remembering that our ejs page will be roughly equivalent to an html page.) EJS pages are required to live in the `views/` directory.
+
+3) `mkdir views`
+
+4) `touch index.ejs`  --> go and add base HTML to this file.
+
+5) Create a route that servers (renders) our `index.ejs`
+```js
+app.get('/', function(req, res){
+  res.render('index')
+});
+```
+6) Start your server and go to 'localhost:3000' to view your ejs page.
+
+Before you commit, make a second route `about`, that serves an about ejs page
+
+```js
+app.get('/about-me, function(req, res'){
+  res.render('about')
+});
+```
+
+----
+
+#### Seventh Commit: Displaying Data With ejs
+When we define our endpoint that renders an EJS page, we can optionally give that EJS page access to specific data. Let's do an example:
+
+```js
+app.get('/', function(req, res){
+  res.render('index', { name: "Taryn" });
+});
+```
+
+Now our `index.ejs` has access to whatever data is passed in the above route, via the object
+
+To display the data in our ejs, update your `index.ejs`
+```HTML
+<h1> Welcome <%= name %> </h1>
+```
+
+Lets do a more realistic exapmle, where we pass an array full of data to our render method. Then we will loop through this data in our EJS page. Update the  `about` route.
+
+```js
+var hobbies = ["skiing", "hiking", "skyrim", "eating"];
+
+app.get('/about-me', function(req, res){
+  res.render('about', { data: hobbies })
+});
+```
+
+We now have access to our array of hobbies in `about.ejs`, lets build a for loop, ejs style, to display this data.
+
+```ejs
+<ul>
+  <% for(var i = 0; i < data.length; i++) { %>
+    <li> <%= data[i]%> </li>
+      <%     }     %>
+```
