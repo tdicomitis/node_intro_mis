@@ -209,4 +209,5 @@ We now have access to our array of hobbies in `about.ejs`, lets build a for loop
   <% for(var i = 0; i < data.length; i++) { %>
     <li> <%= data[i]%> </li>
       <%     }     %>
+</ul>
 ```
