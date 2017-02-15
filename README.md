@@ -3,7 +3,7 @@ Learning node by doing, and keeping track of it with github
 
 ---
 ### First Commit: HTTP
-Using the node module `http`, to create a very simple server.
+First, we will use the node module `http`, to create a very simple server.
 Run `node server.js` to start a server on port 3000.
 
 ```js
@@ -34,7 +34,7 @@ Run command `npm init` to create the JSON file.
 
 Next, we installed the NPM package `express`
 
-Run commant 'npm install --save express'
+Run command 'npm install --save express'
 
 *the dash dash save, writes express to our package.json*
 
